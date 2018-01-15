@@ -1,0 +1,40 @@
+{
+  "name": "prometheum",
+  "version": "0.1.0",
+  "description": "A simple records system using MongoDB, Express.js, React.js, and Node.js with real-time CRUD operations using Socket.io",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "start-dev": "nodemon CORS=1 node server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [],
+  "author": "Jacob Schein",
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "1.17.2",
+    "cors": "2.8.4",
+    "express": "4.15.3",
+    "express-git": "^0.7.0",
+    "express-jwt": "^5.3.0",
+    "express-rate-limit": "2.9.0",
+    "express-session": "^1.15.6",
+    "jsonwebtoken": "^8.1.0",
+    "mongoose": "4.10.8",
+    "mongoose-unique-validator": "1.0.5",
+    "mongoose-validator": "1.3.2",
+    "node-git-server": "^0.4.2",
+    "node-gitlab-api": "^2.1.1",
+    "socket.io": "2.0.3",
+    "string-capitalize-name": "1.0.3"
+  }
+}
