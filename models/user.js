@@ -57,6 +57,9 @@ const UserSchema = new mongoose.Schema({
   gitlabId: {
     type: Number,
     required: [true, 'GitlabId is required.']
+  },
+  totalEmber: {
+    type: Number
   }
 });
 
