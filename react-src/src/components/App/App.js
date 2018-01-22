@@ -90,13 +90,6 @@ class App extends Component {
             <h1 className='App-intro'>MERN CRUD</h1>
             <p>A simple records system using MongoDB, Express.js, React.js, and Node.js with real-time Create, Read, Update, and Delete operations using Socket.io.</p>
             <p>REST API was implemented on the back-end. Semantic UI React was used for the UI.</p>
-            <p>
-              <a className='social-link' href='https://github.com/cefjoeii' target='_blank' rel='noopener noreferrer'>GitHub</a> &bull; <a className='social-link' href='https://linkedin.com/in/cefjoeii' target='_blank' rel='noopener noreferrer'>LinkedIn</a> &bull; <a className='social-link' href='https://twitter.com/cefjoeii' target='_blank' rel='noopener noreferrer'>Twitter</a>
-            </p>
-            <a className='shirts' href='https://www.teepublic.com/user/codeweario' target='_blank' rel='noopener noreferrer'>
-              <img src={shirts} alt='Programmer Shirts' />
-              <span>Ad</span>
-            </a>
           </div>
         </div>
         <Container>
