@@ -8,7 +8,7 @@ const routes = (app) => {
   app.use('/api/users', users);
 
   app.use('/api/projects', projects);
-  
+
   app.use('/api/repos', repos);
   // Init authentication route /auth/me
   auth(app);

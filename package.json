@@ -1,8 +1,8 @@
 {
   "name": "prometheum",
   "version": "0.1.0",
-  "description": "A simple records system using MongoDB, Express.js, React.js, and Node.js with real-time CRUD operations using Socket.io",
-  "main": "server.js",
+  "description": "Front end app for the Source versioning software",
+    "main": "server.js",
   "scripts": {
     "start": "node server",
     "start-dev": "nodemon CORS=1 node server",
@@ -13,7 +13,7 @@
     "url": ""
   },
   "keywords": [],
-  "author": "Jacob Schein",
+  "author": "Carlos Santos,Jacob Schein",
   "license": "MIT",
   "bugs": {
     "url": ""

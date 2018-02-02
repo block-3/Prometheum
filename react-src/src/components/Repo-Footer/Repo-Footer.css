@@ -1,0 +1,10 @@
+const styles = StyleSheet.create({
+.Repo-Footer{
+  align-items: end;
+}
+.info{
+  align-items: right;
+}
+});
+
+export styles;

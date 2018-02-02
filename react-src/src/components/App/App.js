@@ -5,9 +5,8 @@ import io from 'socket.io-client';
 
 import TableUser from '../TableUser/TableUser';
 import ModalUser from '../ModalUser/ModalUser';
-
+import Render from '../Repository/Repository';
 import logo from '../../logo.svg';
-import shirts from '../../shirts.png';
 import './App.css';
 
 class App extends Component {
@@ -20,7 +19,7 @@ class App extends Component {
 
     this.state = {
       users: [],
-      online: 0
+      online: 69
     }
 
     this.fetchUsers = this.fetchUsers.bind(this);
@@ -87,32 +86,10 @@ class App extends Component {
         <div className='App'>
           <div className='App-header'>
             <img src={logo} className='App-logo' alt='logo' />
-            <h1 className='App-intro'>MERN CRUD</h1>
-            <p>A simple records system using MongoDB, Express.js, React.js, and Node.js with real-time Create, Read, Update, and Delete operations using Socket.io.</p>
-            <p>REST API was implemented on the back-end. Semantic UI React was used for the UI.</p>
+            <h1 className='App-intro'>Source-The Future of Software Development</h1>
           </div>
         </div>
-        <Container>
-          <ModalUser
-            headerTitle='Add User'
-            buttonTriggerTitle='Add New'
-            buttonSubmitTitle='Add'
-            buttonColor='green'
-            onUserAdded={this.handleUserAdded}
-            server={this.server}
-            socket={this.socket}
-          />
-          <em id='online'>{`${online} ${noun} ${verb} online.`}</em>
-          <TableUser
-            onUserUpdated={this.handleUserUpdated}
-            onUserDeleted={this.handleUserDeleted}
-            users={this.state.users}
-            server={this.server}
-            socket={this.socket}
-          />
-        </Container>
-        <br/>
-      </div>
+        </div>
     );
   }
 }
