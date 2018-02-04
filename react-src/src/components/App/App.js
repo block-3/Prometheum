@@ -3,10 +3,7 @@ import { Container } from 'semantic-ui-react';
 import axios from 'axios';
 import io from 'socket.io-client';
 
-import TableUser from '../TableUser/TableUser';
-import ModalUser from '../ModalUser/ModalUser';
 import Repositories from '../Repositories/Repositories';
-import logo from '../../logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -30,12 +27,7 @@ class App extends Component {
 
   // Place socket.io code inside here
   componentDidMount() {
-    this.fetchUsers();
-    this.socket.on('visitor enters', data => this.setState({ online: data }));
-    this.socket.on('visitor exits', data => this.setState({ online: data }));
-    this.socket.on('add', data => this.handleUserAdded(data));
-    this.socket.on('update', data => this.handleUserUpdated(data));
-    this.socket.on('delete', data => this.handleUserDeleted(data));
+
   }
 
   // Fetch data from the back-end
@@ -85,7 +77,6 @@ class App extends Component {
       <div>
         <div className='App'>
           <div className='App-header'>
-            <img src={logo} className='App-logo' alt='logo' />
             <h1 className='App-intro'>Source-The Future of Software Development</h1>
           </div>
         </div>

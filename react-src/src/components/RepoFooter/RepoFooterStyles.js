@@ -1,6 +1,3 @@
-export const styles = StyleSheet.create({
-RepoFooter: {
-},
-info: {
-}
-});
+export const styles = {
+RepoFooter: {}
+};
