@@ -5,7 +5,7 @@ import io from 'socket.io-client';
 
 import TableUser from '../TableUser/TableUser';
 import ModalUser from '../ModalUser/ModalUser';
-import Render from '../Repository/Repository';
+import Repositories from '../Repositories/Repositories';
 import logo from '../../logo.svg';
 import './App.css';
 

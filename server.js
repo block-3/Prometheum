@@ -8,6 +8,8 @@ const session = require('express-session');
 const initRoutes = require('./routes/routes');
 const config = require('./config/db');
 
+//uncomment when components finished
+/**
 // Use Node's default promise instead of Mongoose's promise library
 mongoose.Promise = global.Promise;
 
@@ -22,6 +24,7 @@ db.on('open', () => {
 db.on('error', (err) => {
   console.log(`Database error: ${err}`);
 });
+**/
 
 // Instantiate express
 const app = express();
