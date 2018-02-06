@@ -30,7 +30,15 @@ const ageValidator = [
 const genderValidator = [
   // TODO: Make some validations here...
 ];
-
+//Repo model used in order to keep track of stars and ember per repo
+const Repository = new mongoose.Schema({
+  project_name: {
+    type: String
+  },
+  ember_raised: {
+    type: Number
+  }
+})
 // Define the database model
 const UserSchema = new mongoose.Schema({
   name: {
@@ -41,7 +49,7 @@ const UserSchema = new mongoose.Schema({
   username: {
     type: String,
     required: [true, 'Name is required.'],
-    uniuqe: true
+    unique: true
   },
   email: {
     type: String,
@@ -60,6 +68,9 @@ const UserSchema = new mongoose.Schema({
   },
   totalEmber: {
     type: Number
+  },
+  Repositories: {
+    type: [Repository]
   }
 });
 

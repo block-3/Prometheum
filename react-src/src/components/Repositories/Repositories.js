@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Message, Button, } from 'semantic-ui-react';
 import axios from 'axios';
-//import styles from './RepositoriesStyles';
+import {styles} from './RepositoriesStyles';
 import RepoFooter from '../RepoFooter/RepoFooter'
+//import ember-chain from '../../../'
 
 /**
   Update all information with this component and pass src_usd,src and stars to footer
@@ -12,11 +13,13 @@ class Repositories extends React.Component{
   constructor(props){
     super(props);
     this.state={
+      user: "test",
+      repoName: "test name"
+    };
+    this.props={
       stars: 0,
       src: 0,
       src_usd:0,
-      user: "",
-      repoName: ""
     }
     this.updateSRC= this.updateSRC.bind(this);
     this.updateSRC_USD= this.updateSRC_USD.bind(this);
@@ -47,9 +50,14 @@ class Repositories extends React.Component{
 
   render(){
     return(
-    <div>
-      <RepoFooter />
+    <div class="Repositories" style={styles.Repositories}>
+      <span class="info" style={styles.info}>
+        <text id="user" style={styles.user}>{this.state.user}</text><br />
+        <text id="repoName" style={styles.info}>{this.state.repoName}</text>
+      </span>
+    <RepoFooter src="100" src_usd ="321" stars="80"/>
     </div>
+
   );
 };
 }

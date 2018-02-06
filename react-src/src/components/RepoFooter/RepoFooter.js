@@ -7,8 +7,8 @@ import {styles} from './RepoFooterStyles';
 class RepoFooter extends React.Component{
   render(){
     return(
-      <div class= "RepoFooter" >
-        src: {this.props.src} | ${this.props.src_usd} | Stars: {this.props.Stars}
+      <div class= "RepoFooter" style={styles.RepoFooter}>
+        <span id="info" style={styles.info}>src: {this.props.src} <b>|</b> src_usd: ${this.props.src_usd} <b>|</b> Stars: {this.props.stars} <button style={styles.button}>■</button> </span>
       </div>
     )
   }

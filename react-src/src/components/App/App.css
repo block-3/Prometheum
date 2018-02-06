@@ -1,8 +1,10 @@
 .App-header {
-  background-color: #222;
-  color: #fff;
-  margin-bottom: 25px;
+  border: 2px solid;
+  color: black;
+  #margin-bottom: 25px;
   padding: 25px 25px 30px;
+  margin-left: 7.5%;
+  width: 85%;
   text-align: center;
 }
 

@@ -80,6 +80,9 @@ class App extends Component {
             <h1 className='App-intro'>Source-The Future of Software Development</h1>
           </div>
         </div>
+        <Repositories/ >
+        <Repositories/ >
+        <Repositories/ >
         </div>
     );
   }
