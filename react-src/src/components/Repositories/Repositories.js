@@ -23,6 +23,7 @@ class Repositories extends React.Component{
     }
     this.updateSRC= this.updateSRC.bind(this);
     this.updateSRC_USD= this.updateSRC_USD.bind(this);
+    this.handleStar= this.handleStar.bind(this);
   };
 
   updateSRC(new_src){
@@ -44,6 +45,11 @@ class Repositories extends React.Component{
     if(this.props.src !== nextProps.src){
       this.updateSRC(nextProps.src);
     }
+
+  }
+
+  handleStar(){
+    alert("wooo");
   }
 
 
@@ -55,7 +61,7 @@ class Repositories extends React.Component{
         <text id="user" style={styles.user}>{this.state.user}</text><br />
         <text id="repoName" style={styles.info}>{this.state.repoName}</text>
       </span>
-    <RepoFooter src="100" src_usd ="321" stars="80"/>
+    <RepoFooter src="100" src_usd ="321" stars="80" handleStar= {this.handleStar}/>
     </div>
 
   );
