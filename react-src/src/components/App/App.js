@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';
 import axios from 'axios';
 import io from 'socket.io-client';
-
-import Repositories from '../Repositories/Repositories';
+import DynamicRepository from '../DynamicRepository/DynamicRepository';
 import './App.css';
 
 class App extends Component {
@@ -80,9 +79,7 @@ class App extends Component {
             <h1 className='App-intro'>Source-The Future of Software Development</h1>
           </div>
         </div>
-        <Repositories/ >
-        <Repositories/ >
-        <Repositories/ >
+        <DynamicRepository />
         </div>
     );
   }

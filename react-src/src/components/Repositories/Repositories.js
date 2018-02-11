@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Message, Button, } from 'semantic-ui-react';
-import axios from 'axios';
 import {styles} from './RepositoriesStyles';
 import RepoFooter from '../RepoFooter/RepoFooter'
+import gitlab from '../../config/gitlab.js'
 //import ember-chain from '../../../'
 
 /**
@@ -12,18 +11,16 @@ import RepoFooter from '../RepoFooter/RepoFooter'
 class Repositories extends React.Component{
   constructor(props){
     super(props);
-    this.state={
-      user: "test",
-      repoName: "test name"
-    };
     this.props={
       stars: 0,
       src: 0,
       src_usd:0,
+      user: "",
+      repoName: ""
     }
     this.updateSRC= this.updateSRC.bind(this);
     this.updateSRC_USD= this.updateSRC_USD.bind(this);
-    this.handleStar= this.handleStar.bind(this);
+
   };
 
   updateSRC(new_src){
@@ -48,9 +45,7 @@ class Repositories extends React.Component{
 
   }
 
-  handleStar(){
-    alert("wooo");
-  }
+
 
 
 
@@ -58,10 +53,10 @@ class Repositories extends React.Component{
     return(
     <div class="Repositories" style={styles.Repositories}>
       <span class="info" style={styles.info}>
-        <text id="user" style={styles.user}>{this.state.user}</text><br />
-        <text id="repoName" style={styles.info}>{this.state.repoName}</text>
+        <text id="user" style={styles.user}>{this.props.user}</text><br />
+        <text id="repoName" style={styles.info}>{this.props.repoName}</text>
       </span>
-    <RepoFooter src="100" src_usd ="321" stars="80" handleStar= {this.handleStar}/>
+    <RepoFooter user={this.props.user} repoName= {this.props.username} src={this.props.src} src_usd ={this.props.src_usd} stars={this.props.stars} handleStar= {this.props.handleStar}/>
     </div>
 
   );
