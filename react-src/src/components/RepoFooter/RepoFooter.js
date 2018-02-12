@@ -4,12 +4,25 @@ import {styles} from './RepoFooterStyles';
 
 
 class RepoFooter extends React.Component{
+  constructor(props){
+    super(props);
+
+  };
+
+  componentWillReceiveProps(nextProps){
+    if(nextProps!=this.props){
+      alert('foot');
+      this.props = nextProps;
+    }
+  }
+
+
   render(){
     return(
-      <div class= "RepoFooter" style={styles.RepoFooter}>
-        <span id="info" style={styles.info}>src: {this.props.src} <b>| </b>
+      <div className= "RepoFooter" style={styles.RepoFooter}>
+        <span style={styles.info}>src: {this.props.src} <b>| </b>
           src_usd: ${this.props.src_usd} <b>|</b> Stars: {this.props.stars}
-          <a href="#" onClick={this.props.handleStar} > + </a>
+          <a href="#" onClick={() => this.props.handleStar(this.props.id)} > + </a>
           </span>
       </div>
     )

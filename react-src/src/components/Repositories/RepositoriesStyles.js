@@ -9,11 +9,12 @@ export const styles = {
     width: "70%",
     fitPosition: "center"
   },
-  user: {
+  info: {
     fontWeight: "bold",
     fontSize: "large",
+    paddingLeft: "1%",
   },
-  info: {
+  user: {
     paddingLeft: "1em"
   }
   };

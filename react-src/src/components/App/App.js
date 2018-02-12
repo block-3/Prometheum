@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';
 import axios from 'axios';
 import io from 'socket.io-client';
+import gitlab from '../../config/gitlab.js';
 import DynamicRepository from '../DynamicRepository/DynamicRepository';
 import './App.css';
 
@@ -14,31 +15,30 @@ class App extends Component {
     this.socket = io.connect(this.server);
 
     this.state = {
-      users: [],
-      online: 69
-    }
+        starred_repos : [],
+        repos: gitlab.projects.all().then(r=>{return r}),
+        t:''
+    };
 
-    this.fetchUsers = this.fetchUsers.bind(this);
+
     this.handleUserAdded = this.handleUserAdded.bind(this);
     this.handleUserUpdated = this.handleUserUpdated.bind(this);
     this.handleUserDeleted = this.handleUserDeleted.bind(this);
   }
 
-  // Place socket.io code inside here
-  componentDidMount() {
-
+  componentDidMount(){
+    console.log(this.state.repos);
   }
 
-  // Fetch data from the back-end
-  fetchUsers() {
-    axios.get(`${this.server}/api/users/`)
-    .then((response) => {
-      this.setState({ users: response.data });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  updateSRC(new_src){
+    this.setState({src: new_src});
+  };
+
+  updateSRC_USD(new_src_usd){
+    this.setState({src_usd: new_src_usd});
   }
+
+
 
   handleUserAdded(user) {
     let users = this.state.users.slice();
@@ -58,6 +58,7 @@ class App extends Component {
       }
     }
     this.setState({ users: users });
+    return 'update';
   }
 
   handleUserDeleted(user) {
@@ -67,11 +68,10 @@ class App extends Component {
   }
 
   render() {
-
-    let online = this.state.online;
-    let verb = (online <= 1) ? 'is' : 'are'; // linking verb, if you'd prefer
-    let noun = (online <= 1) ? 'person' : 'people';
-
+    console.log('rendering');
+    //get all repos TODO: grab repos by pagation
+console.log(this.state.repos);
+    //console.log(gitlab_promise.then(r => (r.map(x =>{ console.log(x.owner.name)}))));
     return (
       <div>
         <div className='App'>
@@ -79,7 +79,7 @@ class App extends Component {
             <h1 className='App-intro'>Source-The Future of Software Development</h1>
           </div>
         </div>
-        <DynamicRepository />
+        <DynamicRepository gitlab_promise = {this.state.repos}  handleStar={this.handleStar}/>
         </div>
     );
   }

@@ -6,45 +6,33 @@ class DynamicRepository extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      repos: []
+      repos: [],
+      starred_repos: props.starred_repos
     }
-    this.updateReact = this.updateReact.bind(this);
-    this.handleStar = this.handleStar.bind(this);
+    this.renderRepos = this.renderRepos.bind(this);
+    this.renderRepos();
   }
 
-  handleStar(){
-    alert('Calling from grandpa list');
+  componentWillReceiveProps(nextProps){
+    alert('d')
+    this.setState({'starred_repos': nextProps.starred_repos})
+    this.renderRepos();
   }
-  updateReact(){
 
-    let projects_promise = gitlab.projects.all().then( function(s,r){
-      if(!r){
-        return s;}});
-    projects_promise.then( s => {
-        let reposNum = s.length;
-        let hold=[];
-        for(let i=0; i<reposNum;i++){
-
-            let user = s[i].owner.name;
-
-            let repoName = s[i].namespace.name;
-
-            let src=0;
-            let src_usd=0;
-            let stars=0;
-            hold[i] =
-            <Repositories user={user} repoName={repoName} src={src} src_usd={src_usd} stars={stars} handleStar={this.handleStar} / >;
-         }
-         this.setState({repos: hold});
-      });
-
+  renderRepos(){
+    this.props.gitlab_promise.then(repos => {
+    let holdR = repos.map(repo =>
+      <Repositories
+      key={repo.id}
+      repoID={repo.id} repoName={repo.name} user={repo.owner.username}
+      src="0" src_usd="0" stars={repo.star_count}
+      handleStar={this.props.handleStar}/ >);
+    this.setState({repos: holdR});
+  });
   }
 
 
     render(){
-      this.updateReact();
-      //let hold = <Repositories user='2s' repoName='john' src='1' src_usd='3' stars='0' handleStar={this.handleStar} / >//this.updateReact();
-      //this.setState({repos: hold})
       return(
       <div>
         {this.state.repos}
