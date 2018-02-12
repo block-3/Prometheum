@@ -59,12 +59,17 @@ class Repositories extends React.Component{
       let  stard= starred_list.includes(id);
 
       if(stard){
-        gitlab.projects.unstar(id).then((succ,err) =>{if(err){console.log(err)}else{console.log(succ);}});
+        gitlab.projects.unstar(id).then((succ,err) =>{if(err){console.log(err)}else{
+          console.log("unstarred",succ);
+          this.setState({'stars': succ.star_count});
+        }});
       }else{
-        gitlab.projects.star(id).then((succ,err)=> {if(err){console.log(err)}else{console.log(succ);}});
+        gitlab.projects.star(id).then((succ,err)=> {if(err){console.log(err)}else{
+          console.log("stared",succ);
+          this.setState({'stars': succ.star_count});
+        }});
       }
     });
-    this.setState({starr: stars});
   }
 
   render(){

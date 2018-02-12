@@ -6,13 +6,16 @@ import {styles} from './RepoFooterStyles';
 class RepoFooter extends React.Component{
   constructor(props){
     super(props);
-
+    console.log(props);
   };
 
   componentWillReceiveProps(nextProps){
     if(nextProps!=this.props){
-      alert('foot');
+      //alert('foot');
       this.props = nextProps;
+      console.log(this.props);
+      //this.forceUpdate();
+
     }
   }
 
