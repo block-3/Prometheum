@@ -14,7 +14,7 @@ class DynamicRepository extends React.Component{
   }
 
   componentWillReceiveProps(nextProps){
-    alert('d')
+
     this.setState({'starred_repos': nextProps.starred_repos})
     this.renderRepos();
   }

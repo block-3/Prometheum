@@ -16,7 +16,7 @@ class App extends Component {
 
     this.state = {
         starred_repos : [],
-        repos: gitlab.projects.all().then(r=>{return r}),
+        repos: [],
         t:''
     };
 
@@ -24,6 +24,7 @@ class App extends Component {
     this.handleUserAdded = this.handleUserAdded.bind(this);
     this.handleUserUpdated = this.handleUserUpdated.bind(this);
     this.handleUserDeleted = this.handleUserDeleted.bind(this);
+
   }
 
   componentDidMount(){
@@ -69,8 +70,12 @@ class App extends Component {
 
   render() {
     console.log('rendering');
+    gitlab.projects.all().then(r => {
+      console.log(r);
+    });
+    //this.setState({repos: gitlab_promise});
     //get all repos TODO: grab repos by pagation
-console.log(this.state.repos);
+    //this.state.repos.then(r => {console.log('body');});
     //console.log(gitlab_promise.then(r => (r.map(x =>{ console.log(x.owner.name)}))));
     return (
       <div>
@@ -79,7 +84,7 @@ console.log(this.state.repos);
             <h1 className='App-intro'>Source-The Future of Software Development</h1>
           </div>
         </div>
-        <DynamicRepository gitlab_promise = {this.state.repos}  handleStar={this.handleStar}/>
+        <DynamicRepository gitlab_promise = {this.state.repos}  />
         </div>
     );
   }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React,{Component} from 'react';
 import {styles} from './RepositoriesStyles';
 import RepoFooter from '../RepoFooter/RepoFooter';
 import gitlab from '../../config/gitlab.js';
@@ -54,7 +54,7 @@ class Repositories extends React.Component{
   }
 
   handleStar(id){
-    let stars = gitlab.projects.all({'starred':'true'}).then(result => {
+     gitlab.projects.all({'starred':'true'}).then(result => {
       let starred_list = result.map(repo => repo.id);
       let  stard= starred_list.includes(id);
 

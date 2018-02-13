@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { Message, Button, Select } from 'semantic-ui-react';
+import React,{Component} from 'react';
 import {styles} from './RepoFooterStyles';
 
 
@@ -10,7 +9,7 @@ class RepoFooter extends React.Component{
   };
 
   componentWillReceiveProps(nextProps){
-    if(nextProps!=this.props){
+    if(nextProps!==this.props){
       //alert('foot');
       this.props = nextProps;
       console.log(this.props);
